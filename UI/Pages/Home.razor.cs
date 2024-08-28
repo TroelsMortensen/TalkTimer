@@ -17,7 +17,7 @@ public partial class Home : ComponentBase
 
     private void AddParticipant()
     {
-        participants.Add(new Participant(ParticipantName,ids[idIndex], x, y));
+        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y));
         x += 200;
         y += 0;
         idIndex++;
@@ -25,4 +25,22 @@ public partial class Home : ComponentBase
     }
 }
 
-public record Participant(string Name, string Id, int X, int Y);
+public class Participant
+{
+    public Participant(string name, string id, int x, int y)
+    {
+        long Time = 0;
+        bool IsTalking = false;
+        Name = name;
+        Id = id;
+        X = x;
+        Y = y;
+    }
+
+    public string Name { get; set; }
+    public string Id { get; set; }
+    public int X { get; set; }
+    public int Y { get; set; }
+    public long Time { get; set; }
+    public bool IsTalking { get; set; }
+}
