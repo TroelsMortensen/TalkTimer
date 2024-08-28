@@ -1,0 +1,18 @@
+﻿<div class="participant-card" style="left: @(Participant.X)px; top: @(Participant.Y)px">
+    <div style="    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+margin: 10px">
+        <h2>@Participant.Name</h2>
+        <img src="images/SingleProfile.png" alt="Profile" class="profile-image"/>
+        <label>@Participant.Id</label>
+        <label>00:00:00</label>
+        <div>
+            <img src="images/Play.png" style="height:50px;margin-bottom: 10px"/>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Participant Participant { get; set; }
+}

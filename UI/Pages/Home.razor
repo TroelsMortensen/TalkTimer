@@ -2,6 +2,18 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="canvas">
+    <div class="card">
+        <h1>Taletidstageren</h1>
+        <div class="card-box">
+            <label style="text-align: center">Tilføj deltager:</label>
+            <input type="text" @bind="ParticipantName" />
+            <button @onclick="AddParticipant" class="add-button" >Tilføj</button>
+        </div>
+    </div>
+    @foreach(var participant in participants)
+    {
+        <ParticipantUI Participant="participant"/>
+    }
 
-Welcome to your new app.
+</div>
