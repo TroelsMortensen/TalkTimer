@@ -15,8 +15,8 @@
                     @bind:event="oninput"
                     @onkeydown="OnEnterPress"/>
                 <img src="images/@(selectedGenderAvatar)"
+                     class="select-gender-button"
                      alt="Profile"
-                     style="height:30px; border-radius: 50%; cursor: pointer"
                      @onclick="SwapGender"/>
             </div>
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>

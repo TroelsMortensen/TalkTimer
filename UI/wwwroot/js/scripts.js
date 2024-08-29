@@ -8,4 +8,11 @@ function initializeCounterComponent() {
             }
         });
     }
+    let allImages = document.getElementsByTagName("img");
+    for (let i = 0; i < allImages.length; i++) {
+        allImages[i].addEventListener("dragstart", (e) => {
+            console.log("Image clicked");
+            return false;
+        });
+    }
 }
