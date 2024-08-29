@@ -15,19 +15,42 @@ public partial class Home : ComponentBase
     private int idIndex = 0;
     private List<Participant> participants = [];
 
+    private string selectedGenderAvatar = "MaleAvatar.svg";
+    private bool isMaleAvatar = true;
+
     private void AddParticipant()
     {
-        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y));
+        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedGenderAvatar));
         x += 200;
         y += 0;
         idIndex++;
         ParticipantName = "";
     }
+
+    private void SwapGender()
+    {
+        if (isMaleAvatar)
+        {
+            isMaleAvatar = !isMaleAvatar;
+            selectedGenderAvatar = "FemaleAvatar.svg";
+        }
+        else
+        {
+            isMaleAvatar = !isMaleAvatar;
+            selectedGenderAvatar = "MaleAvatar.svg";
+        }
+    }
+
+    private void StopAllOthers(string id) =>
+        participants
+            .Where(p => !p.Id.Equals(id))
+            .ToList()
+            .ForEach(p => p.StopTalking());
 }
 
 public class Participant
 {
-    public Participant(string name, string id, int x, int y)
+    public Participant(string name, string id, int x, int y, string avatarImg)
     {
         long Time = 0;
         bool IsTalking = false;
@@ -35,7 +58,12 @@ public class Participant
         Id = id;
         X = x;
         Y = y;
+        AvatarImg = avatarImg;
     }
+
+    public Action OnStopTalking { get; set; }
+    
+    public string AvatarImg { get; set; }
 
     public string Name { get; set; }
     public string Id { get; set; }
@@ -43,4 +71,9 @@ public class Participant
     public int Y { get; set; }
     public long Time { get; set; }
     public bool IsTalking { get; set; }
+
+    public void StopTalking()
+    {
+        OnStopTalking?.Invoke();
+    }
 }

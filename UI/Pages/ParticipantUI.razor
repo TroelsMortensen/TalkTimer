@@ -5,7 +5,7 @@
                     align-items: center;
 margin: 10px">
         <h2>@Participant.Name (@Participant.Id)</h2>
-        <img src="images/SingleProfile.png" alt="Profile" class="profile-image"/>
+        <img src="images/@Participant.AvatarImg" alt="Profile" class="profile-image"/>
         <label>@GetTalkTime()</label>
         <div>
             @if (Participant.IsTalking)
@@ -22,6 +22,8 @@ margin: 10px">
 
 @code {
     [Parameter] public Participant Participant { get; set; } = null!;
+    [Parameter] public EventCallback<string> OnStartTiming { get; set; }
+
     private long time = 0;
 
     private Timer timer = null!;
@@ -32,6 +34,7 @@ margin: 10px">
         timer = new Timer(timeInterval);
         timer.Elapsed += UpdateUi;
         timer.AutoReset = true;
+        Participant.OnStopTalking += Pause;
     }
 
     private async void UpdateUi(object? sender, ElapsedEventArgs e)
@@ -49,10 +52,11 @@ margin: 10px">
         timer.Stop();
     }
 
-    private void Play()
+    private async Task Play()
     {
         Participant.IsTalking = true;
         timer.Start();
+        await OnStartTiming.InvokeAsync(Participant.Id);
     }
 
     private string GetTalkTime()
