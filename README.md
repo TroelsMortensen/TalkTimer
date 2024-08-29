@@ -26,3 +26,13 @@ You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse 
 You can start the time recorder for a participant by clicking the "play" button. Pressing the play button will pause other talking participants. It is assuming only one talks at a time.
 
 You can press keys on the keyboard according to their id, to start/pause recording. I have support for 14 participants, they will be given the ids: 1-9qwert.
+
+
+## Version 1.0
+Features:
+* Add participants
+* Start/stop recording time for participants
+
+## Version 2.0
+Features:
+* Display the time per participant in a table, with the new top-right "export" button.
