@@ -42,5 +42,10 @@
     border: 1px solid black;
 }
 
+.version-number{
+    font-size: 20px;
+    color: gray;
+}
+
 
 
