@@ -56,10 +56,13 @@ public partial class Home : ComponentBase
     
     private void HandleKeyPress(KeyboardEventArgs args)
     {
-        // Console.WriteLine(args.Code);
-        Console.WriteLine(args.Key);
-        // Console.WriteLine(args.Type);
-        
+        string keyPress = args.Key;
+        Participant? selectedParticipant = participants.SingleOrDefault(p => p.Id == keyPress);
+        if (selectedParticipant is not null)
+        {
+            selectedParticipant.FlipTalkingState();
+            StopAllOthers(keyPress);
+        }
     }
 
     private async Task SetFocusToCanvas()
@@ -90,7 +93,7 @@ public class Participant
     }
 
     public Action OnStopTalking { get; set; }
-    
+    public Action OnFlipTalkingState { get; set; }
     public string AvatarImg { get; set; }
 
     public string Name { get; set; }
@@ -103,5 +106,10 @@ public class Participant
     public void StopTalking()
     {
         OnStopTalking?.Invoke();
+    }
+
+    public void FlipTalkingState()
+    {
+        OnFlipTalkingState?.Invoke();
     }
 }

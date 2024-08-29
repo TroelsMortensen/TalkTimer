@@ -35,6 +35,19 @@
         timer.Elapsed += UpdateUi;
         timer.AutoReset = true;
         Participant.OnStopTalking += Pause;
+        Participant.OnFlipTalkingState += FlipTalking;
+    }
+
+    private void FlipTalking()
+    {
+        if (Participant.IsTalking)
+        {
+            Pause();
+        }
+        else
+        {
+            Play(); // ignore await
+        }
     }
 
     private async void UpdateUi(object? sender, ElapsedEventArgs e)
@@ -61,13 +74,13 @@
 
     private string GetTalkTime()
     {
-        string time = TimeSpan.FromMilliseconds(Participant.Time).ToString("G");
-        if (time.Length > 12)
+        string talkingTime = TimeSpan.FromMilliseconds(Participant.Time).ToString("G");
+        if (talkingTime.Length > 12)
         {
-            time = time.Substring(2, 10);
+            talkingTime = talkingTime.Substring(2, 10);
         }
 
-        return time;
+        return talkingTime;
     }
 
 }
