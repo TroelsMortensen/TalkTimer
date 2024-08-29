@@ -16,7 +16,6 @@ public partial class Home : ComponentBase
     private int y = 200;
     private int idIndex = 0;
     private List<Participant> participants = [];
-    private ElementReference myCanvas;
     private string selectedGenderAvatar = "MaleAvatar.svg";
     private bool isMaleAvatar = true;
 
@@ -63,11 +62,6 @@ public partial class Home : ComponentBase
             selectedParticipant.FlipTalkingState();
             StopAllOthers(keyPress);
         }
-    }
-
-    private async Task SetFocusToCanvas()
-    {
-        // await jsRuntime.InvokeVoidAsync("Focus", myCanvas);
     }
 
     private void OnEnterPress(KeyboardEventArgs obj)
