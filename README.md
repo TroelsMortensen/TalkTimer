@@ -1,0 +1,28 @@
+# Talk timer
+
+This is a hobby project, I created for by best bro Jesper <3
+
+He needed an app to time who is speeking in meetings.
+
+So, I have created a Blazor WASM site to setup the meeting participants, and you can start and stop the timer for each participant.
+
+It is hosted here: https://troelsmortensen.github.io/TalkTimer/
+
+To add participant:
+* insert a name
+* Click the avatar icon to change gender
+* press the "tilføj" button.
+* If the input field is still in focus, you can press enter to add a participant
+
+Each participant is represented with a card, with
+* name
+* id, in ( ) after the name
+* avatar
+* the speech time
+* button to start/pause speech time recording
+
+You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse exits the avatar image, you drop the dragging, and have to pick the card up again. This won't be fixed.
+
+You can start the time recorder for a participant by clicking the "play" button. Pressing the play button will pause other talking participants. It is assuming only one talks at a time.
+
+You can press keys on the keyboard according to their id, to start/pause recording. I have support for 14 participants, they will be given the ids: 1-9qwert.
