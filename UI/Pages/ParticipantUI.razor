@@ -1,9 +1,9 @@
 ﻿@using System.Timers
 <div class="participant-card" style="left: @(Participant.X)px; top: @(Participant.Y)px">
-    <div style="    display:flex;
-                    flex-direction: column;
-                    align-items: center;
-margin: 10px">
+    <div style="display:flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 10px">
         <h2>@Participant.Name (@Participant.Id)</h2>
         <img src="images/@Participant.AvatarImg" alt="Profile" class="profile-image"/>
         <label>@GetTalkTime()</label>

@@ -1,17 +1,22 @@
 ﻿@page "/"
+@inject IJSRuntime jsRuntime
 
 <PageTitle>Home</PageTitle>
 
-<div class="canvas">
+<div id="canvas" tabindex="0" class="canvas" @onkeydown="HandleKeyPress" @onclick="SetFocusToCanvas" @ref="myCanvas">
     <div class="card">
         <h1>Taletidstageren</h1>
         <div class="card-box">
             <label style="text-align: center">Tilføj deltager:</label>
-            <div>
-                <input type="text" @bind="ParticipantName"/> 
-                <img src="images/@(selectedGenderAvatar)" 
-                     alt="Profile" 
-                     style="height:30px; border-radius: 50%; cursor: pointer" 
+            <div id="name-input">
+                <input 
+                    type="text" 
+                    @bind="ParticipantName" 
+                    @bind:event="oninput"
+                    @onkeydown="OnEnterPress"/>
+                <img src="images/@(selectedGenderAvatar)"
+                     alt="Profile"
+                     style="height:30px; border-radius: 50%; cursor: pointer"
                      @onclick="SwapGender"/>
             </div>
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
