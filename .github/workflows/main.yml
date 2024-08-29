@@ -34,7 +34,7 @@ jobs:
         run: sed -i 's/<base href="\/" \/>/<base href="\/TalkTimer\/" \/>/g' publish/wwwroot/index.html
       # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
       - name: Add .nojekyll file
-        run: touch release/wwwroot/.nojekyll
+        run: touch publish/wwwroot/.nojekyll
       # Deploy the site
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
