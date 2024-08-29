@@ -23,7 +23,7 @@
         </div>
     </div>
     <DisplayData Participants="participants"/>
-
+    <ResetAllTimers Participants="participants"/>
     @foreach (var participant in participants)
     {
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>

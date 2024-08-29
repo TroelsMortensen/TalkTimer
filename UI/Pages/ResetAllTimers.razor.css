@@ -1,0 +1,23 @@
+﻿.reset-button-container {
+    display: inline-block;
+    position: absolute;
+    right: 105px;
+    top: 120px;
+}
+
+.reset-times-button {
+    height: 65px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid black;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.progress-circle {
+    position: absolute;
+    height: 85px;
+    width: 85px;
+    border-radius: 50%;
+}

@@ -4,7 +4,7 @@
 [x] ID short cuts
 
 # V2
-[ ] Export data
+[x] Export data
 
 # V3
 [ ] reset all timers
