@@ -1,26 +1,51 @@
 ﻿@using UI.Model
 <div class="reset-button-container">
     <svg class="progress-circle" id="svg" viewbox="0 0 100 100">
-        <path fill="none" stroke-linecap="butt" stroke-width="10" stroke="#f00"
-              stroke-dasharray="@progress,150"
+        <path fill="none" stroke-linecap="butt" stroke-width="5" stroke="#f00"
+              stroke-dasharray="@progress,250.2"
               d="M50 10
-                   a 40 40 0 0 1 0 80
-                   a 40 40 0 0 1 0 -80"/>
+           a 40 40 0 0 1 0 80
+           a 40 40 0 0 1 0 -80"/>
     </svg>
     <img src="images/svgs/resetclock.svg"
          class="reset-times-button"
          alt="Export"
-         @onmousedown="ExecuteReset"/>
+         @onmousedown="ExecuteReset"
+         @onmouseup="() => isHolding = false"
+         @onmouseout="() => isHolding = false"/>
 </div>
 
 @code {
 
     [Parameter] public List<Participant> Participants { get; set; } = [];
     private int progress = 0; // goes to 250
-    
-    private Task ExecuteReset()
+    private bool isHolding;
+
+    private async Task ExecuteReset()
     {
-        return Task.CompletedTask;
+        isHolding = true;
+        await UpdateProgressBar();
+    }
+
+    private async Task UpdateProgressBar()
+    {
+        while (progress < 250 && isHolding)
+        {
+            await Task.Delay(10);
+            progress++;
+            StateHasChanged();
+        }
+
+        if (progress == 250)
+        {
+            progress = 0;
+            Participants.ForEach(p => p.Time = 0);
+        }
+
+        if (!isHolding)
+        {
+            progress = 0;
+        }
     }
 
 }
