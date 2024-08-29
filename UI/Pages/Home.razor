@@ -9,9 +9,9 @@
         <div class="card-box">
             <label style="text-align: center">Tilføj deltager:</label>
             <div id="name-input">
-                <input 
-                    type="text" 
-                    @bind="ParticipantName" 
+                <input
+                    type="text"
+                    @bind="ParticipantName"
                     @bind:event="oninput"
                     @onkeydown="OnEnterPress"/>
                 <img src="images/@(selectedGenderAvatar)"
@@ -22,9 +22,13 @@
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>
     </div>
+    <div class="export-container">
+        <img src="images/svgs/export.svg" class="export-button" alt="Export" @onclick="() => showDialog = !showDialog"/>
+    </div>
     @foreach (var participant in participants)
     {
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
     }
 
+    <DisplayData Participants="participants" ShowDialog="showDialog"/>
 </div>

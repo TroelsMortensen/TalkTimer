@@ -1,0 +1,14 @@
+﻿@using UI.Model
+
+@if (ShowDialog)
+{
+    <div>
+        <h1>Data here</h1>
+    </div>
+}
+
+@code {
+    [Parameter] public List<Participant> Participants { get; set; } = [];
+
+    [Parameter] public bool ShowDialog { get; set; } = false;
+}

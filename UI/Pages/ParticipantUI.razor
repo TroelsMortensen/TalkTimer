@@ -1,4 +1,5 @@
 ﻿@using System.Timers
+@using UI.Model
 <div class="participant-card" style="left: @X; top: @Y">
     <div style="display:flex;
                 flex-direction: column;
@@ -113,7 +114,7 @@
         if (!isDragging) return;
 
         // following offsets are strangely necessary to maintain the entity box relative to where the mouse was clicked.
-        Participant.Y = (int)(e.ClientY - 120);
+        Participant.Y = (int)(e.ClientY - 130);
         Participant.X = (int)(e.ClientX - 90);
         // Redrawer.RaiseRedrawEvent();
     }

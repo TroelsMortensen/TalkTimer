@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
+using UI.Model;
 
 namespace UI.Pages;
 
@@ -18,7 +19,7 @@ public partial class Home : ComponentBase
     private List<Participant> participants = [];
     private string selectedGenderAvatar = "MaleAvatar.svg";
     private bool isMaleAvatar = true;
-
+    private bool showDialog;
     protected override async Task OnAfterRenderAsync(bool b)
     {
         await jsRuntime.InvokeVoidAsync("initializeCounterComponent");
@@ -27,7 +28,7 @@ public partial class Home : ComponentBase
     private void AddParticipant()
     {
         participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedGenderAvatar));
-        x += 200;
+        x += 25;
         y += 0;
         idIndex++;
         ParticipantName = "";
@@ -70,40 +71,5 @@ public partial class Home : ComponentBase
         {
             AddParticipant();
         }
-    }
-}
-
-public class Participant
-{
-    public Participant(string name, string id, int x, int y, string avatarImg)
-    {
-        long Time = 0;
-        bool IsTalking = false;
-        Name = name;
-        Id = id;
-        X = x;
-        Y = y;
-        AvatarImg = avatarImg;
-    }
-
-    public Action OnStopTalking { get; set; }
-    public Action OnFlipTalkingState { get; set; }
-    public string AvatarImg { get; set; }
-
-    public string Name { get; set; }
-    public string Id { get; set; }
-    public int X { get; set; }
-    public int Y { get; set; }
-    public long Time { get; set; }
-    public bool IsTalking { get; set; }
-
-    public void StopTalking()
-    {
-        OnStopTalking?.Invoke();
-    }
-
-    public void FlipTalkingState()
-    {
-        OnFlipTalkingState?.Invoke();
     }
 }
