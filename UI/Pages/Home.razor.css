@@ -42,15 +42,5 @@
     border: 1px solid black;
 }
 
-.export-container{
-    position: absolute;
-    right: 25px;
-    top: 25px;
-}
 
-.export-button{
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid black;
-}
+

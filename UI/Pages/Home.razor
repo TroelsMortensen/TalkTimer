@@ -5,7 +5,7 @@
 
 <div id="canvas" tabindex="0" class="canvas" @onkeydown="HandleKeyPress">
     <div class="card">
-        <h1>Taletidstageren</h1>
+        <h1>Taletidstageren (v1.0)</h1>
         <div class="card-box">
             <label style="text-align: center">Tilføj deltager:</label>
             <div id="name-input">
@@ -22,13 +22,11 @@
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>
     </div>
-    <div class="export-container">
-        <img src="images/svgs/export.svg" class="export-button" alt="Export" @onclick="() => showDialog = !showDialog"/>
-    </div>
+    <DisplayData Participants="participants"/>
+
     @foreach (var participant in participants)
     {
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
     }
 
-    <DisplayData Participants="participants" ShowDialog="showDialog"/>
 </div>

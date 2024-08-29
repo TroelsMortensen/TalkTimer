@@ -1,14 +1,42 @@
 ﻿@using UI.Model
 
-@if (ShowDialog)
+<div class="export-button-container">
+    <img src="images/svgs/export.svg"
+         class="export-button"
+         alt="Export"
+         @onclick="() => showDialog = !showDialog"/>
+</div>
+
+
+@if (showDialog)
 {
-    <div>
-        <h1>Data here</h1>
+    <div class="export-modal">
+        <div class="modal-content">
+            <div class="button-bar">
+                <img src="images/svgs/exit.svg"
+                     class="exit-button"
+                     alt="Exit"
+                     @onclick="() => showDialog = !showDialog"/>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    @foreach (var participant in Participants)
+                    {
+                        <tr>
+                            <td>@participant.Name</td>
+                            <td>@participant.Time</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
     </div>
 }
 
 @code {
     [Parameter] public List<Participant> Participants { get; set; } = [];
 
-    [Parameter] public bool ShowDialog { get; set; } = false;
+    private bool showDialog;
+
 }

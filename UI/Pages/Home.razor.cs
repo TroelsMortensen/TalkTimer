@@ -19,7 +19,6 @@ public partial class Home : ComponentBase
     private List<Participant> participants = [];
     private string selectedGenderAvatar = "MaleAvatar.svg";
     private bool isMaleAvatar = true;
-    private bool showDialog;
     protected override async Task OnAfterRenderAsync(bool b)
     {
         await jsRuntime.InvokeVoidAsync("initializeCounterComponent");
@@ -29,7 +28,7 @@ public partial class Home : ComponentBase
     {
         participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedGenderAvatar));
         x += 25;
-        y += 0;
+        y += 10;
         idIndex++;
         ParticipantName = "";
     }
