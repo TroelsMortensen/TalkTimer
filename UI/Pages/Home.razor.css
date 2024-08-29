@@ -39,6 +39,7 @@
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+    border: 1px solid black;
 }
 
 .export-container{
