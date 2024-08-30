@@ -36,3 +36,11 @@ Features:
 ## Version 2.0
 Features:
 * Display the time per participant in a table, with the new top-right "export" button.
+
+## Version 3.0
+Features:
+* Added button to reset all the timers.
+
+## Version 3.1
+Fixes:
+* Improved the participant card dragging slightly.
