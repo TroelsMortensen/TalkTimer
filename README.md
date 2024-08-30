@@ -44,3 +44,10 @@ Features:
 ## Version 3.1
 Fixes:
 * Improved the participant card dragging slightly.
+
+## Version 4.0
+Features:
+* Can choose between more avatars
+
+Fixes:
+* Time to reset all timers are now shorter.

@@ -13,3 +13,6 @@
 
 # V4
 [ ] avatars
+
+# V5
+[ ] support for more participants, though maybe without hotkeys.
