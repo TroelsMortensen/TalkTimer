@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 100 100"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="C:\TRMO\RiderProjects\SpeechTimer\UI\wwwroot\images\avatars\Pieces\Shirt\Shirt1.png"
+   inkscape:export-xdpi="25.4"
+   inkscape:export-ydpi="25.4"
+   sodipodi:docname="Shirt1.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.394379"
+     inkscape:cx="187.39849"
+     inkscape:cy="234.73169"
+     inkscape:window-width="1738"
+     inkscape:window-height="1041"
+     inkscape:window-x="2758"
+     inkscape:window-y="304"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-79.280366,-88.135865)">
+    <path
+       id="path13284"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.72615;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 217.37891 265.06445 A 29.014337 10.923045 0 0 1 217.55078 266.25 A 29.014337 10.923045 0 0 1 188.53711 277.17188 A 29.014337 10.923045 0 0 1 159.52148 266.25 A 29.014337 10.923045 0 0 1 159.6875 265.13672 A 141.73228 56.692912 0 0 0 48.707031 312.47852 A 187.00932 187.00932 0 0 0 188.97656 375.98633 A 187.00932 187.00932 0 0 0 329.26953 312.45117 A 141.73228 56.692912 0 0 0 217.37891 265.06445 z "
+       transform="matrix(0.26458333,0,0,0.26458333,79.280366,88.135865)" />
+  </g>
+</svg>
