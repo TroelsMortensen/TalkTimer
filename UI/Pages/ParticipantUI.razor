@@ -1,6 +1,9 @@
 ﻿@using System.Timers
 @using UI.Model
-<div class="participant-card" style="left: @X; top: @Y">
+<div class="participant-card" style="left: @X; top: @Y"
+     @onmouseup="StopDrag"
+     @onmouseleave="StopDrag"
+     @onmousemove="ExecuteDrag">
     <div style="display:flex;
                 flex-direction: column;
                 align-items: center;
@@ -11,9 +14,7 @@
             alt="Profile"
             class="profile-image"
             @onmousedown="StartDrag"
-            @onmouseup="StopDrag"
-            @onmouseleave="StopDrag"
-            @onmousemove="ExecuteDrag"
+
             ondragstart="return false;"/>
         <label>@GetTalkTime()</label>
         <div>
