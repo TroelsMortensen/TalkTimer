@@ -7,7 +7,9 @@
 [x] Export data
 
 # V3
-[ ] reset all timers
+* [x] reset all timers
+* [x] change rounded to butt
+* [ ] change line thickness
 
 # V4
 [ ] avatars
