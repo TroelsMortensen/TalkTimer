@@ -31,8 +31,8 @@
 .avatar-images {
     display: inline-block;
     position: relative;
-    /*border-radius: 50%;*/
-    border: 2px solid black;
+    border-radius: 50%;
+    /*border: 2px solid black;*/
     height: 150px;
     width: 150px;
 }
@@ -48,4 +48,13 @@
     content: "";
     display: block;
     padding-top: 100%;
+}
+
+.avatar-image-border {
+    border: 5px solid black;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
 }
