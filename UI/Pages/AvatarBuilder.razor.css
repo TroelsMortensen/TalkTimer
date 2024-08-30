@@ -31,16 +31,21 @@
 .avatar-images {
     display: inline-block;
     position: relative;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     border: 2px solid black;
-    height:150px;
-    width:150px;
+    height: 150px;
+    width: 150px;
 }
 
-.avatar-image-part {
-    width:150px;
-    position: absolute;
 
-    filter: drop-shadow(0px 1000px 0 blue);
-    transform: translateY(-1000px);
+.avatar-image-part {
+    width: 150px;
+    position: absolute;
+    display: inline-block;
+}
+
+.avatar-image-part:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
 }
