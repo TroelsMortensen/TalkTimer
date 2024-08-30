@@ -7,10 +7,10 @@
    viewBox="0 0 100 100"
    version="1.1"
    id="svg5"
-   inkscape:export-filename="C:\TRMO\RiderProjects\SpeechTimer\UI\wwwroot\images\avatars\Pieces\Shirt\Shirt1.png"
-   inkscape:export-xdpi="25.4"
-   inkscape:export-ydpi="25.4"
-   sodipodi:docname="Shirt.svg"
+   inkscape:export-filename="C:\TRMO\RiderProjects\SpeechTimer\UI\wwwroot\images\Pause.png"
+   inkscape:export-xdpi="114.77"
+   inkscape:export-ydpi="114.77"
+   sodipodi:docname="Neck.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -26,13 +26,13 @@
      inkscape:pagecheckerboard="true"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.5536476"
-     inkscape:cx="189.55392"
-     inkscape:cy="169.60088"
-     inkscape:window-width="1738"
-     inkscape:window-height="1041"
+     inkscape:zoom="3.1072952"
+     inkscape:cx="195.18583"
+     inkscape:cy="193.89854"
+     inkscape:window-width="1962"
+     inkscape:window-height="1403"
      inkscape:window-x="2082"
-     inkscape:window-y="175"
+     inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <defs
@@ -43,9 +43,12 @@
      id="layer1"
      transform="translate(-79.280366,-88.135865)">
     <path
-       id="path13284"
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.72615;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 188.97656 263.79297 A 141.73228 56.692913 0 0 0 48.707031 312.47852 A 187.00932 187.00932 0 0 0 188.97656 375.98633 A 187.00932 187.00932 0 0 0 329.26953 312.45117 A 141.73228 56.692913 0 0 0 188.97656 263.79297 z "
-       transform="matrix(0.26458333,0,0,0.26458333,79.280366,88.135865)" />
+       id="rect20354"
+       style="opacity:1;fill:#ffffff;stroke-width:1.00256;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+       d="m 123.81147,146.7892 h 10.81166 c 0.35877,0 0.61334,0.22443 0.6476,0.50036 l 1.71223,13.78697 c 0.044,0.35398 -0.37053,0.6419 -0.83079,0.6419 h -13.86975 c -0.46026,0 -0.87476,-0.28792 -0.8308,-0.6419 l 1.71223,-13.78697 c 0.0343,-0.27593 0.28883,-0.50036 0.64762,-0.50036 z"
+       sodipodi:nodetypes="sssssssss"
+       inkscape:export-filename="C:\TRMO\RiderProjects\SpeechTimer\UI\wwwroot\images\avatars\Pieces\Face\Face.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4" />
   </g>
 </svg>

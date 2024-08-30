@@ -1,0 +1,30 @@
+﻿@if (ShowBuilder)
+{
+    <div class="builder-modal">
+        <div class="builder-modal-content">
+            <div class="display-avatar-bar">
+                <div class="avatar-images">
+                    <img class="avatar-image-part" src="images/avatars/Pieces/Face/Neck.svg" alt="">
+                    <img class="avatar-image-part" src="images/avatars/Pieces/Face/Face.svg" alt="">
+                    <img class="avatar-image-part" src="images/avatars/Pieces/Hair/Hair.svg" alt="">
+                    <img class="avatar-image-part" src="images/avatars/Pieces/Shirt/Shirt.svg" alt="">
+                </div>
+                <hr/>
+            </div>
+            <div class="avatar-pieces-container">
+
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    [Parameter] public bool ShowBuilder { get; set; } = false;
+
+    private void OpenBuilder()
+    {
+        ShowBuilder = true;
+    }
+
+}

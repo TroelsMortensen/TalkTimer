@@ -14,16 +14,22 @@
                     @bind="ParticipantName"
                     @bind:event="oninput"
                     @onkeydown="OnEnterPress"/>
-                <img src="images/@(selectedGenderAvatar)"
-                     class="select-gender-button"
-                     alt="Profile"
-                     @onclick="SwapGender"/>
+                <img class="open-builder-button" 
+                     src="images/MaleAvatar.svg" 
+                     alt="Build avatar" 
+                     @onclick="() => showBuilder = true"/>
+                @* <img src="images/@(selectedGenderAvatar)" *@
+                @*      class="select-gender-button" *@
+                @*      alt="Profile" *@
+                @*      @onclick="SwapGender"/> *@
             </div>
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>
     </div>
     <DisplayData Participants="participants"/>
     <ResetAllTimers Participants="participants"/>
+    <AvatarBuilder ShowBuilder="@showBuilder"/>
+
     @foreach (var participant in participants)
     {
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
