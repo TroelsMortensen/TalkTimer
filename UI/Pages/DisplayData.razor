@@ -25,7 +25,7 @@
                     {
                         <tr>
                             <td>@participant.Name</td>
-                            <td>@participant.Time</td>
+                            <td>@FormatTime(participant.Time)</td>
                         </tr>
                     }
                 </table>
@@ -38,5 +38,8 @@
     [Parameter] public List<Participant> Participants { get; set; } = [];
 
     private bool showDialog;
+
+    private string FormatTime(long time) =>
+        (time / 1000).ToString();
 
 }
