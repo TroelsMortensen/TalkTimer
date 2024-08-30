@@ -1,41 +1,10 @@
-﻿@if (ShowBuilder)
+﻿@using UI.Model
+@if (ShowBuilder)
 {
     <div class="builder-modal">
         <div class="builder-modal-content">
             <div class="display-avatar-bar">
-                <div class="avatar-images">
-                    <div class="avatar-image-part"
-                         style="
-                         /*background:url(images/avatars/Pieces/Face/Neck.png) center/contain no-repeat;*/
-                         background-blend-mode:darken;
-                         mask:url(images/avatars/Pieces/Face/Neck.svg) center/contain no-repeat; 
-                         background-color: sandybrown">
-                    </div>
-                    <div class="avatar-image-part"
-                         style="
-                         /*background:url(images/avatars/Pieces/Face/Face.png) center/contain no-repeat;*/
-                         background-blend-mode:darken;
-                         mask:url(images/avatars/Pieces/Face/Face.svg) center/contain no-repeat; 
-                         background-color: rosybrown">
-                    </div>
-                    <div class="avatar-image-part"
-                         style="
-                         /*background:url(images/avatars/Pieces/Hair/Hair1.png) center/contain no-repeat;*/
-                         background-blend-mode:darken;
-                         mask:url(images/avatars/Pieces/Hair/Hair1.svg) center/contain no-repeat; 
-                         background-color: darkred">
-                    </div>
-                    <div class="avatar-image-part"
-                         style="
-                         /*background:url(images/avatars/Pieces/Shirt/Shirt1.png) center/contain no-repeat;*/
-                         background-blend-mode:darken;
-                         mask:url(images/avatars/Pieces/Shirt/Shirt1.svg) center/contain no-repeat; 
-                         background-color: blue;">
-                    </div>
-                    <div class="avatar-image-border">
-                        
-                    </div>
-                </div>
+                <AvatarUI Avatar="avatar" Size="150"/>
                 <hr/>
             </div>
             <div class="avatar-pieces-container">
@@ -48,6 +17,7 @@
 @code {
 
     [Parameter] public bool ShowBuilder { get; set; } = false;
+    private Avatar avatar = new("Face", new RGB(244, 164, 96), "Hair1", new RGB(139, 0, 0), "Shirt1", new RGB(0, 0, 255));
 
     private void OpenBuilder()
     {

@@ -1,0 +1,31 @@
+﻿@using UI.Model
+<div style="width: @(Size)px; height: @(Size)px">
+    <div class="avatar-images">
+        <div class="avatar-image-part"
+             style="background-blend-mode:darken;
+             mask:url(images/avatars/Pieces/Face/Neck.svg) center/contain no-repeat;
+             background-color: rgb(@(Avatar.FaceColor.R * 0.8), @(Avatar.FaceColor.G * 0.8), @(Avatar.FaceColor.B * 0.8))">
+        </div>
+        <div class="avatar-image-part"
+             style="background-blend-mode:darken;
+             mask:url(images/avatars/Pieces/Face/Face.svg) center/contain no-repeat;
+             background-color: rgb(@(Avatar.FaceColor.R), @(Avatar.FaceColor.G), @(Avatar.FaceColor.B))">
+        </div>
+        <div class="avatar-image-part"
+             style="background-blend-mode:darken;
+             mask:url(images/avatars/Pieces/Hair/Hair1.svg) center/contain no-repeat;
+             background-color: rgb(@(Avatar.HairColor.R), @(Avatar.HairColor.G), @(Avatar.HairColor.B))">
+        </div>
+        <div class="avatar-image-part"
+             style="background-blend-mode:darken;
+             mask:url(images/avatars/Pieces/Shirt/Shirt1.svg) center/contain no-repeat;
+             background-color: rgb(@(Avatar.ShirtColor.R), @(Avatar.ShirtColor.G), @(Avatar.ShirtColor.B))">
+        </div>
+        <div class="avatar-image-border"></div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public Avatar Avatar { get; set; } = null!;
+    [Parameter] public int Size { get; set; }
+}
