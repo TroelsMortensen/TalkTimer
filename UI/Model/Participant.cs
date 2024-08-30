@@ -15,6 +15,9 @@ public class Participant
 
     public Action OnStopTalking { get; set; } = null!;
     public Action OnFlipTalkingState { get; set; } = null!;
+
+    public Action OnTimeReset { get; set; } = null!;
+    
     public string AvatarImg { get; set; }
 
     public string Name { get; set; }
@@ -32,5 +35,11 @@ public class Participant
     public void FlipTalkingState()
     {
         OnFlipTalkingState?.Invoke();
+    }
+
+    public void ResetTime()
+    {
+        Time = 0;
+        OnTimeReset?.Invoke();
     }
 }

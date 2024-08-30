@@ -48,6 +48,12 @@
         timer.AutoReset = true;
         Participant.OnStopTalking += Pause;
         Participant.OnFlipTalkingState += FlipTalking;
+        Participant.OnTimeReset += TimeHasBeenReset;
+    }
+
+    private void TimeHasBeenReset()
+    {
+        InvokeAsync(StateHasChanged);
     }
 
     private void FlipTalking()

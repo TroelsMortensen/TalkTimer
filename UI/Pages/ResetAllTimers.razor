@@ -17,6 +17,8 @@
 
 @code {
 
+    // Radial progress bar stolen from here: https://codepen.io/web-tiki/pen/qEGvMN
+    
     [Parameter] public List<Participant> Participants { get; set; } = [];
     private int progress = 0; // goes to 250
     private bool isHolding;
@@ -39,7 +41,9 @@
         if (progress == 250)
         {
             progress = 0;
-            Participants.ForEach(p => p.Time = 0);
+            Participants.ForEach(p => p.StopTalking());
+            Participants.ForEach(p => p.ResetTime());
+            StateHasChanged();
         }
 
         if (!isHolding)
