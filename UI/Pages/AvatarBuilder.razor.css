@@ -1,4 +1,8 @@
-﻿.open-builder-button-container {
+﻿:root{
+    --my-color: #000000;
+}
+
+.open-builder-button-container {
     display: inline-block;
 }
 
@@ -24,7 +28,68 @@
 
 .display-avatar-bar {
     margin-top: 15px;
-    height: 80px;
+    height: 150px;
     display: flex;
     justify-content: center;
+}
+
+.color-selector {
+    height: 50px;
+    width: 50px;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: 1s;
+}
+
+.color-selector:hover {
+    transform: scale(1.2);
+    transition: 0.15s;
+    box-shadow: 0 0 15px 15px var(--my-color);
+}
+
+.selector-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cloth-container {
+    display: inline-block;
+    cursor: pointer;
+    transform: scale(1.0);
+    transition: 1s;
+    height:75px;
+    width:75px;
+}
+
+.cloth-container:hover {
+    transform: scale(1.2);
+    transition: 0.25s;
+}
+
+.avatar-image-part {
+    width: 75px;
+    position: absolute;
+    /*display: inline-block;*/
+    /*margin: 5px;*/
+    cursor: pointer;
+
+    border: 2px solid black;
+}
+
+
+.avatar-image-part:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.avatar-ring {
+    border: 2px solid black;
+    /*display: inline-block;*/
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    position: absolute;
 }

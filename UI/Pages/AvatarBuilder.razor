@@ -5,10 +5,50 @@
         <div class="builder-modal-content">
             <div class="display-avatar-bar">
                 <AvatarUI Avatar="avatar" Size="150"/>
-                <hr/>
             </div>
-            <div class="avatar-pieces-container">
+            <hr/>
 
+            <div class="avatar-pieces-container">
+                <div style="text-align: center">
+                    <h4>Face color</h4>
+                    <div class="selector-container">
+                        <div class="color-selector" style="--my-color: rgb(255,223,196);background-color: rgb(255,223,196)" @onclick="() => SetFaceColor(new RGB(255, 223, 196))"></div>
+                        <div class="color-selector" style="--my-color: rgb(234,203,168); background-color: rgb(234,203,168)" @onclick="() => SetFaceColor(new RGB(234, 203, 168))"></div>
+                        <div class="color-selector" style="--my-color: rgb(207,158,124); background-color: rgb(207,158,124)" @onclick="() => SetFaceColor(new RGB(207, 158, 124))"></div>
+                        <div class="color-selector" style="--my-color: rgb(173,128,8); background-color: rgb(173,128,8)" @onclick="() => SetFaceColor(new RGB(173, 128, 8))"></div>
+                        <div class="color-selector" style="--my-color: rgb(148,97,60); background-color: rgb(148,97,60)" @onclick="() => SetFaceColor(new RGB(148, 97, 60))"></div>
+                        <div class="color-selector" style="--my-color: rgb(54, 40, 2); background-color: rgb(54, 40, 2);" @onclick="() => SetFaceColor(new RGB(54, 40, 2))"></div>
+                    </div>
+                </div>
+                <hr/>
+                <div style="text-align: center">
+                    <h4>Hair</h4>
+                    <div class="selector-container">
+                        @* colors *@
+                        <div class="color-selector" style="--my-color: rgb(152,152,152); background-color: rgb(152,152,152); " @onclick="() => SetHairColor(new RGB(152, 152, 152))"></div>
+                        <div class="color-selector" style="--my-color: rgb(210,72,4); background-color: rgb(210,72,4)" @onclick="() => SetHairColor(new RGB(154, 51, 0))"></div>
+                        <div class="color-selector" style="--my-color: rgb(129,43,1); background-color: rgb(129,43,1)" @onclick="() => SetHairColor(new RGB(79, 26, 0))"></div>
+                        <div class="color-selector" style="--my-color: rgb(222,190,153); background-color: rgb(222,190,153)" @onclick="() => SetHairColor(new RGB(222, 190, 153))"></div>
+                        <div class="color-selector" style="--my-color: rgb(248,226,137); background-color: rgb(248,226,137)" @onclick="() => SetHairColor(new RGB(248, 226, 137))"></div>
+                        <div class="color-selector" style="--my-color: rgb(248,168,63); background-color: rgb(248,168,63)" @onclick="() => SetHairColor(new RGB(248, 168, 63))"></div>
+                        <div class="color-selector" style="--my-color: rgb(196,145,15); background-color: rgb(196,145,15)" @onclick="() => SetHairColor(new RGB(196, 145, 15))"></div>
+                        <div class="color-selector" style="--my-color: rgb(107,79,5); background-color: rgb(107,79,5)" @onclick="() => SetHairColor(new RGB(107, 79, 5))"></div>
+                        <div class="color-selector" style="--my-color: rgb(54, 40, 2); background-color: rgb(54, 40, 2);" @onclick="() => SetHairColor(new RGB(54, 40, 2))"></div>
+                        <div class="color-selector" style="--my-color: rgb(33,23,0); background-color: rgb(33,23,0);" @onclick="() => SetHairColor(new RGB(33, 23, 0))"></div>
+                    </div>
+                    <div class="selector-container">
+                        @* styles *@
+                        <div class="cloth-container">
+                            <div class="avatar-image-part"
+                                 style="background-blend-mode:darken;
+                                     mask:url(images/avatars/Pieces/Hair/Hair1.svg) center/contain no-repeat;
+                                     background-color: rgb(@(avatar.HairColor.R), @(avatar.HairColor.G), @(avatar.HairColor.B))">
+                            </div>
+                            <div class="avatar-ring">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -23,5 +63,9 @@
     {
         ShowBuilder = true;
     }
+
+    private void SetFaceColor(RGB rgb) => avatar = avatar with { FaceColor = rgb };
+
+    private void SetHairColor(RGB rgb) => avatar = avatar with { HairColor = rgb };
 
 }
