@@ -13,3 +13,6 @@
 
 # V4
 [ ] avatars
+
+# V4.1
+Bugfix (?): Timer pauses, if window is minimized, or if tab is not the active one.
