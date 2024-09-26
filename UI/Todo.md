@@ -16,4 +16,4 @@
 
 ## TODO:
 1) Bugfix (?): Timer pauses, if window is minimized, or if tab is not the active one. See potential fix here:
-  * https://stackoverflow.com/questions/66367838/window-focus-blur-events-in-blazor-web-assembly
+    * https://stackoverflow.com/questions/66367838/window-focus-blur-events-in-blazor-web-assembly
