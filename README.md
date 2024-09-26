@@ -21,11 +21,11 @@ Each participant is represented with a card, with
 * the speech time
 * button to start/pause speech time recording
 
-You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse exits the avatar image, you drop the dragging, and have to pick the card up again. This won't be fixed.
+You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse exits the participant card, you drop the dragging, and have to pick the card up again. This probably won't be improved further.
 
-You can start the time recorder for a participant by clicking the "play" button. Pressing the play button will pause other talking participants. It is assuming only one talks at a time.
+You can start the time recorder for a participant by clicking the "play" button. Pressing the play button will pause the other talking participant, if any. It is assumed only one talks at a time.
 
-You can press keys on the keyboard according to their id, to start/pause recording. I have support for 14 participants, they will be given the ids: 1-9qwert.
+You can press keys on the keyboard according to their id, to start/pause recording. I have support for 14 participants, per Jesper's request. They will be given the ids: 1-9qwert.
 
 
 ## Version 1.0
@@ -39,7 +39,7 @@ Features:
 
 ## Version 3.0
 Features:
-* Added button to reset all the timers.
+* Added button to reset all the timers, top right.
 
 ## Version 3.1
 Fixes:
