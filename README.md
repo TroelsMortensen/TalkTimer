@@ -27,24 +27,24 @@ You can start the time recorder for a participant by clicking the "play" button.
 
 You can press keys on the keyboard according to their id, to start/pause recording. I have support for 14 participants, per Jesper's request. They will be given the ids: 1-9qwert.
 
-
-## Version 1.0
+# Updates
+### Version 1.0
 Features:
 * Add participants
 * Start/stop recording time for participants
 
-## Version 2.0
+### Version 2.0
 Features:
 * Display the time per participant in a table, with the new top-right "export" button.
 
-## Version 3.0
+### Version 3.0
 Features:
 * Added button to reset all the timers, top right.
 
-## Version 3.1
+### Version 3.1
 Fixes:
 * Improved the participant card dragging slightly.
 
-## Version 3.2
+### Version 3.2
 Fixes:
 * Timer should no longer pause, when de-focusing the browser tab.
