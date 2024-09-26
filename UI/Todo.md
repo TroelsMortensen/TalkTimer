@@ -1,10 +1,10 @@
 # V1
-[x] Ved start af timer, stop alle andre
-[x] flyt cards rundt
-[x] ID short cuts
+* [x] Ved start af timer, stop alle andre
+* [x] flyt cards rundt
+* [x] ID short cuts
 
 # V2
-[x] Export data
+* [x] Export data
 
 # V3
 * [x] reset all timers
