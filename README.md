@@ -44,3 +44,7 @@ Features:
 ## Version 3.1
 Fixes:
 * Improved the participant card dragging slightly.
+
+## Version 3.2
+Fixes:
+* Timer should no longer pause, when de-focusing the browser tab.
