@@ -1,5 +1,6 @@
 ﻿@using System.Timers
 @using UI.Model
+@using System.Diagnostics
 <div class="participant-card" style="left: @X; top: @Y"
      @onmouseup="StopDrag"
      @onmouseleave="StopDrag"
@@ -40,10 +41,12 @@
     private double xOffset;
 
     private Timer timer = null!;
-    private int timeInterval = 100;
+    private Stopwatch stopwatch = new();
 
     protected override void OnInitialized()
     {
+        stopwatch.Stop();
+        const int timeInterval = 200;
         timer = new Timer(timeInterval);
         timer.Elapsed += UpdateUi;
         timer.AutoReset = true;
@@ -54,6 +57,7 @@
 
     private void TimeHasBeenReset()
     {
+        stopwatch.Reset();
         InvokeAsync(StateHasChanged);
     }
 
@@ -73,7 +77,7 @@
     {
         await InvokeAsync(() =>
         {
-            Participant.Time += timeInterval;
+            Participant.Time = stopwatch.ElapsedMilliseconds;
             StateHasChanged();
         });
     }
@@ -82,10 +86,12 @@
     {
         Participant.IsTalking = false;
         timer.Stop();
+        stopwatch.Stop();
     }
 
     private async Task Play()
     {
+        stopwatch.Start();
         Participant.IsTalking = true;
         timer.Start();
         await OnStartTiming.InvokeAsync(Participant.Id);
@@ -94,14 +100,13 @@
     private string GetTalkTime()
     {
         string talkingTime = TimeSpan.FromMilliseconds(Participant.Time).ToString("G");
-        if (talkingTime.Length > 12)
-        {
-            talkingTime = talkingTime.Substring(2, 10);
-        }
-
+        talkingTime = talkingTime.Length <= 12 ? talkingTime : talkingTime.Substring(2, 10);
         return talkingTime;
     }
 
+    /**
+     * Dragging functionality
+     */
     private void StartDrag(MouseEventArgs e)
     {
         xOffset = e.ClientX;
@@ -121,7 +126,6 @@
         // following offsets are strangely necessary to maintain the entity box relative to where the mouse was clicked.
         Participant.Y = (int)(e.ClientY - 130);
         Participant.X = (int)(e.ClientX - 90);
-        // Redrawer.RaiseRedrawEvent();
     }
 
 }
