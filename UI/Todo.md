@@ -10,6 +10,7 @@
 * [x] reset all timers
 * [x] change rounded to butt
 * [x] change line thickness
+* [ ] test
 
 # V4
 [ ] avatars
