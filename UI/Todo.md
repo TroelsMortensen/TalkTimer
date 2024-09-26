@@ -12,7 +12,7 @@
 * [x] change line thickness
 
 # V4
-[ ] avatars
+* [ ] avatars
 
 ## TODO:
 1) Bugfix (?): Timer pauses, if window is minimized, or if tab is not the active one. See potential fix here:
