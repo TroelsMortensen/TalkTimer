@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "UI",
   "resources": {
-    "hash": "sha256-51otmExTD2Na2a8MZWzPZYjV2y06c4bUmwyZMD3jywM=",
+    "hash": "sha256-9yTHjiZCrFCj82ePQy6l9zQuwInA6r553r7KxHP7+Fc=",
     "jsModuleNative": {
       "dotnet.native.8.0.8.746giovk6l.js": "sha256-juC5sA7gHTLXFEhAKgdM2/RavswpwCtDfjYGsAz2FXg="
     },
@@ -50,7 +50,7 @@
       "System.Text.Json.wasm": "sha256-ssKxhpQUttYzKmcz3x97MWVU7Ih+A1pW08TZ1VU+HOk=",
       "System.Text.RegularExpressions.wasm": "sha256-8bujMNUMCuxn48zxE7AA6YYcbZJjv76LHEAtNjS6TuE=",
       "System.wasm": "sha256-ka1SPMSVGn53xDzeBa40FQCsprKEF+n+wpvvd1HyMNE=",
-      "UI.wasm": "sha256-FILx+sXvO9S1VVzUP5EkExBOmoKcn7GenXWp03+MNhk="
+      "UI.wasm": "sha256-8/FJDoIUqNtmGUkAkOcw6x/+7nnx5em7z+5fdmovTqo="
     }
   },
   "cacheBootResources": true,
