@@ -14,5 +14,6 @@
 # V4
 [ ] avatars
 
-# V4.1
-Bugfix (?): Timer pauses, if window is minimized, or if tab is not the active one.
+# TODO:
+Bugfix (?): Timer pauses, if window is minimized, or if tab is not the active one. See potential fix here:
+* https://stackoverflow.com/questions/66367838/window-focus-blur-events-in-blazor-web-assembly
