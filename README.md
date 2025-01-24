@@ -49,5 +49,5 @@ Fixes:
 Fixes:
 * Timer should no longer pause, when de-focusing the browser tab.
 
-## Roadmap
+# Roadmap
 * Navigation lock, when page is "dirty", [maybe this?](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-7.0#handleprevent-location-changes)
