@@ -19,9 +19,12 @@ public partial class Home : ComponentBase
     private List<Participant> participants = [];
     private string selectedGenderAvatar = "MaleAvatar.svg";
     private bool isMaleAvatar = true;
+    [Inject] public IJSRuntime JsRuntime { get; set; }
+
+    
     protected override async Task OnAfterRenderAsync(bool b)
     {
-        await jsRuntime.InvokeVoidAsync("initializeCounterComponent");
+        await JsRuntime.InvokeVoidAsync("initializeCounterComponent");
     }
 
     private void AddParticipant()
