@@ -49,5 +49,8 @@ Fixes:
 Fixes:
 * Timer should no longer pause, when de-focusing the browser tab.
 
+### Version 3.3
+* You must now confirm before navigating away from the page, so as to not loose data.
+
 # Roadmap
 * Navigation lock, when page is "dirty", [maybe this?](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-7.0#handleprevent-location-changes)
