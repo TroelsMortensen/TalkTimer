@@ -53,4 +53,4 @@ Fixes:
 * You must now confirm before navigating away from the page, so as to not loose data.
 
 # Roadmap
-* Navigation lock, when page is "dirty", [maybe this?](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-7.0#handleprevent-location-changes)
+* Customizable avatars, so you can make avatars slightly more looking like the people in the meeting.
