@@ -21,7 +21,7 @@ Each participant is represented with a card, with
 * the speech time
 * button to start/pause speech time recording
 
-You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse exits the participant card, you drop the dragging, and have to pick the card up again. This probably won't be improved further.
+You can drag the cards by dragging the avatar. It's a bit clunky, if your mouse exits the participant card, you drop the dragging, and have to pick the card up again. While I have an idea for a fix, it is clumsy, so this probably won't be improved further.
 
 You can start the time recorder for a participant by clicking the "play" button. Pressing the play button will pause the other talking participant, if any. It is assumed only one talks at a time.
 
