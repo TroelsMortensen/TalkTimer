@@ -2,7 +2,7 @@
 
 This is a hobby project, I created for by best bro, Jesper <3
 
-He needed an app to time who is speeking in meetings.
+He needed an app to time who is speaking in meetings.
 
 So, I have created a Blazor WASM site to setup the meeting participants, and you can start and stop the timer for each participant.
 
