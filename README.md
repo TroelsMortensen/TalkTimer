@@ -1,6 +1,6 @@
 # Talk timer
 
-This is a hobby project, I created for by best bro Jesper <3
+This is a hobby project, I created for by best bro, Jesper <3
 
 He needed an app to time who is speeking in meetings.
 
