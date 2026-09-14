@@ -2,6 +2,7 @@
 @using System.Globalization
 
 <div class="avatar-stack @CssClass" @attributes="AdditionalAttributes">
+
     <div class="avatar-layer"
          style="@LayerStyle(AvatarCatalog.NeckPath, Darken(Config.SkinColor, 0.85))">
     </div>
@@ -9,7 +10,7 @@
          style="@LayerStyle(AvatarCatalog.FacePath, Config.SkinColor)">
     </div>
     <div class="avatar-layer"
-         style="@LayerStyle(AvatarCatalog.ShirtPath(Config.ShirtId), Config.ShirtColor)">
+         style="@TintStyle(AvatarCatalog.ShirtPath(Config.ShirtId), Config.ShirtColor)">
     </div>
     @if (AvatarCatalog.BeardPath(Config.BeardId) is { } beardPath)
     {
@@ -28,11 +29,22 @@
 @code {
     [Parameter] public AvatarConfig Config { get; set; } = AvatarConfig.CreateDefaultMale();
     [Parameter] public string? CssClass { get; set; }
+
     [Parameter(CaptureUnmatchedValues = true)]
     public Dictionary<string, object>? AdditionalAttributes { get; set; }
 
     private static string LayerStyle(string path, string color) =>
         $"background-color:{color};" +
+        $"-webkit-mask-image:url('{path}');mask-image:url('{path}');" +
+        "-webkit-mask-size:contain;mask-size:contain;" +
+        "-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;" +
+        "-webkit-mask-position:center;mask-position:center;";
+
+    private static string TintStyle(string path, string color) =>
+        $"background-color:{color};" +
+        $"background-image:url('{path}');" +
+        "background-size:contain;background-repeat:no-repeat;background-position:center;" +
+        "background-blend-mode:multiply;" +
         $"-webkit-mask-image:url('{path}');mask-image:url('{path}');" +
         "-webkit-mask-size:contain;mask-size:contain;" +
         "-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;" +
@@ -51,4 +63,5 @@
 
         return $"#{(int)(r * factor):X2}{(int)(g * factor):X2}{(int)(b * factor):X2}";
     }
+
 }
