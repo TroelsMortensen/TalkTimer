@@ -3,7 +3,10 @@
 <PageTitle>Home</PageTitle>
 <NavigationLock ConfirmExternalNavigation="true"/>
 
-<div id="canvas" tabindex="0" class="canvas" @onkeydown="HandleKeyPress">
+<div id="canvas" tabindex="0" class="canvas"
+     @onkeydown="HandleKeyPress"
+     @onmousemove="OnCanvasMouseMove"
+     @onmouseup="OnCanvasMouseUp">
     <div class="card">
         <h1>Taletidstageren <span class="version-number">(v4.0)</span></h1>
         <div class="card-box">
@@ -28,7 +31,10 @@
     <ImportMeetingSetup OnImported="StateHasChanged" />
     @foreach (var participant in ParticipantsService.participants)
     {
-        <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
+        <ParticipantUI Participant="participant"
+                       OnStartTiming="StopAllOthers"
+                       OnDragStarted="OnCardDragStarted"
+                       IsDragging="draggingParticipantId == participant.Id"/>
     }
 
     <AvatarEditorModal Visible="showAvatarEditor"

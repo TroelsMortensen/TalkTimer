@@ -13,6 +13,7 @@ public partial class Home : ComponentBase
     private string ParticipantName { get; set; } = string.Empty;
     private AvatarConfig selectedAvatar = AvatarConfig.CreateDefaultMale();
     private bool showAvatarEditor;
+    private string? draggingParticipantId;
 
     [Inject] public IJSRuntime JsRuntime { get; set; } = null!;
 
@@ -63,4 +64,25 @@ public partial class Home : ComponentBase
             AddParticipant();
         }
     }
+
+    private void OnCardDragStarted(string participantId) =>
+        draggingParticipantId = participantId;
+
+    private void OnCanvasMouseMove(MouseEventArgs e)
+    {
+        if (draggingParticipantId is null)
+            return;
+
+        var participant = ParticipantsService.participants
+            .SingleOrDefault(p => p.Id == draggingParticipantId);
+        if (participant is null)
+            return;
+
+        // Offsets keep the card roughly under the cursor relative to the avatar.
+        participant.Y = (int)(e.ClientY - 130);
+        participant.X = (int)(e.ClientX - 90);
+    }
+
+    private void OnCanvasMouseUp(MouseEventArgs e) =>
+        draggingParticipantId = null;
 }
