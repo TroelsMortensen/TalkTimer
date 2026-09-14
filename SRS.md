@@ -28,6 +28,11 @@ TalkTimer is a lightweight web app for timing who speaks during meetings. Users 
 | Hosting | GitHub Pages (static WASM publish) |
 | Solution | `SpeechTimer.sln` → single `UI` project |
 
+## 4. Architecture choices
+- Prefer smaller components, when possible
+- Prefer code behind classes rather than code blocks, when possible
+- Prefer local styling over global styling, when possible
+
 ## 4. Avatar system
 
 **Current:** Layered SVG pieces (shirt, neck, face, optional beard/hair) with CSS mask tinting. Users configure an avatar in a modal when adding a participant. Look persists for the session only.

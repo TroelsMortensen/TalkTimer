@@ -10,7 +10,7 @@
 }
 
 .avatar-editor-panel {
-    width: min(420px, 92vw);
+    width: min(560px, 92vw);
     background-color: white;
     border-radius: 25px;
     border: 2px solid black;
@@ -45,22 +45,29 @@
 }
 
 .avatar-editor-preview-row {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
     margin-bottom: 16px;
+    padding: 0 12px;
+    min-height: 240px;
 }
 
 ::deep .avatar-editor-preview {
-    width: 120px;
-    height: 120px;
+    width: 240px;
+    height: 240px;
 }
 
 .skin-palette {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(2, 22px);
+    grid-template-rows: repeat(4, 22px);
+    gap: 8px;
 }
 
 .style-palette {

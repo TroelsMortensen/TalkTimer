@@ -8,7 +8,10 @@ public static class AvatarCatalog
     public static readonly IReadOnlyList<string> HairStyles =
     [
         AvatarConfig.None,
-        "Hair1"
+        "Hair1",
+        "Hair2",
+        "Hair3",
+        "Hair4",
     ];
 
     public static readonly IReadOnlyList<string> BeardStyles =
