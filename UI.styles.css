@@ -1,3 +1,171 @@
+/* /Components/AvatarEditorModal.razor.rz.scp.css */
+.avatar-editor-overlay[b-77of8f79fs] {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+.avatar-editor-panel[b-77of8f79fs] {
+    width: min(560px, 92vw);
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 12px 16px 20px;
+    box-sizing: border-box;
+}
+
+.avatar-editor-header[b-77of8f79fs] {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.avatar-editor-confirm[b-77of8f79fs] {
+    border-radius: 16px;
+    border: 1px solid black;
+    background-color: lightgreen;
+    padding: 4px 14px;
+    cursor: pointer;
+}
+
+.avatar-editor-confirm:active[b-77of8f79fs] {
+    background-color: green;
+}
+
+.avatar-editor-exit[b-77of8f79fs] {
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+}
+
+.avatar-editor-preview-row[b-77of8f79fs] {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    min-height: 240px;
+}
+
+[b-77of8f79fs] .avatar-editor-preview {
+    width: 240px;
+    height: 240px;
+}
+
+.skin-palette[b-77of8f79fs] {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: repeat(2, 22px);
+    grid-template-rows: repeat(4, 22px);
+    gap: 8px;
+}
+
+.style-palette[b-77of8f79fs] {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.color-swatch[b-77of8f79fs] {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    cursor: pointer;
+    padding: 0;
+}
+
+.color-swatch.selected[b-77of8f79fs] {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+.category-row[b-77of8f79fs] {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.category-button[b-77of8f79fs] {
+    border-radius: 16px;
+    border: 1px solid black;
+    background: #f3f3f3;
+    padding: 4px 14px;
+    cursor: pointer;
+}
+
+.category-button.selected[b-77of8f79fs] {
+    background: #90d3f8;
+    font-weight: 600;
+}
+
+.style-options[b-77of8f79fs] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.style-option[b-77of8f79fs] {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    border: 2px solid #999;
+    background: #fafafa;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.style-option.selected[b-77of8f79fs] {
+    border-color: #000;
+    background: #e8f6ff;
+}
+
+.style-thumb[b-77of8f79fs] {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
+.style-none[b-77of8f79fs] {
+    font-size: 11px;
+    color: #444;
+}
+/* /Components/AvatarView.razor.rz.scp.css */
+.avatar-stack[b-t05iokhzj4] {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid black;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.avatar-layer[b-t05iokhzj4] {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
 /* /Layout/MainLayout.razor.rz.scp.css */
 .page[b-mr0ddkk2zs] {
     position: relative;
@@ -261,11 +429,11 @@ td[b-55i80en3v3] {
     background-color: green;
 }
 
-.select-gender-button[b-uyo0foee1o] {
+[b-uyo0foee1o] .select-avatar-button {
+    width: 30px;
     height: 30px;
-    border-radius: 50%;
     cursor: pointer;
-    border: 1px solid black;
+    vertical-align: middle;
 }
 
 .version-number[b-uyo0foee1o]{
@@ -286,11 +454,9 @@ td[b-55i80en3v3] {
     display:inline-block;
 }
 
-.profile-image[b-ah1jzymshi]{
+[b-ah1jzymshi] .profile-image{
     width: 125px;
     height: 125px;
-    border-radius: 50%;
-    border: 2px solid black;
     margin-left: 10px;
     margin-right: 10px;
     cursor: grab;
