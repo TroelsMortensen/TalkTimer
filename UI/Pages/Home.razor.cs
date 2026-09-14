@@ -17,37 +17,33 @@ public partial class Home : ComponentBase
     private int y = 200;
     private int idIndex = 0;
     private List<Participant> participants = [];
-    private string selectedGenderAvatar = "MaleAvatar.svg";
-    private bool isMaleAvatar = true;
-    [Inject] public IJSRuntime JsRuntime { get; set; }
+    private AvatarConfig selectedAvatar = AvatarConfig.CreateDefaultMale();
+    private bool showAvatarEditor;
 
-    
-    protected override async Task OnAfterRenderAsync(bool b)
+    [Inject] public IJSRuntime JsRuntime { get; set; } = null!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await JsRuntime.InvokeVoidAsync("initializeCounterComponent");
     }
 
     private void AddParticipant()
     {
-        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedGenderAvatar));
+        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedAvatar.Clone()));
         x += 25;
         y += 10;
         idIndex++;
         ParticipantName = "";
     }
 
-    private void SwapGender()
+    private void OpenAvatarEditor() => showAvatarEditor = true;
+
+    private void CloseAvatarEditor() => showAvatarEditor = false;
+
+    private void OnAvatarConfirmed(AvatarConfig config)
     {
-        if (isMaleAvatar)
-        {
-            isMaleAvatar = !isMaleAvatar;
-            selectedGenderAvatar = "FemaleAvatar.svg";
-        }
-        else
-        {
-            isMaleAvatar = !isMaleAvatar;
-            selectedGenderAvatar = "MaleAvatar.svg";
-        }
+        selectedAvatar = config;
+        showAvatarEditor = false;
     }
 
     private void StopAllOthers(string id) =>
@@ -55,7 +51,7 @@ public partial class Home : ComponentBase
             .Where(p => !p.Id.Equals(id))
             .ToList()
             .ForEach(p => p.StopTalking());
-    
+
     private void HandleKeyPress(KeyboardEventArgs args)
     {
         string keyPress = args.Key;

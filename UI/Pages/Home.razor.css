@@ -35,11 +35,11 @@
     background-color: green;
 }
 
-.select-gender-button {
+::deep .select-avatar-button {
+    width: 30px;
     height: 30px;
-    border-radius: 50%;
     cursor: pointer;
-    border: 1px solid black;
+    vertical-align: middle;
 }
 
 .version-number{

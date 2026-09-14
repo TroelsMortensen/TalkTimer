@@ -1,0 +1,39 @@
+@using UI.Model
+
+<div class="avatar-stack @CssClass" @attributes="AdditionalAttributes">
+    <div class="avatar-layer"
+         style="@LayerStyle(AvatarCatalog.NeckPath, Config.SkinColor)">
+    </div>
+    <div class="avatar-layer"
+         style="@LayerStyle(AvatarCatalog.FacePath, Config.SkinColor)">
+    </div>
+    <div class="avatar-layer"
+         style="@LayerStyle(AvatarCatalog.ShirtPath(Config.ShirtId), Config.ShirtColor)">
+    </div>
+    @if (AvatarCatalog.BeardPath(Config.BeardId) is { } beardPath)
+    {
+        <div class="avatar-layer"
+             style="@LayerStyle(beardPath, Config.BeardColor)">
+        </div>
+    }
+    @if (AvatarCatalog.HairPath(Config.HairId) is { } hairPath)
+    {
+        <div class="avatar-layer"
+             style="@LayerStyle(hairPath, Config.HairColor)">
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public AvatarConfig Config { get; set; } = AvatarConfig.CreateDefaultMale();
+    [Parameter] public string? CssClass { get; set; }
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private static string LayerStyle(string path, string color) =>
+        $"background-color:{color};" +
+        $"-webkit-mask-image:url('{path}');mask-image:url('{path}');" +
+        "-webkit-mask-size:contain;mask-size:contain;" +
+        "-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;" +
+        "-webkit-mask-position:center;mask-position:center;";
+}

@@ -1,0 +1,177 @@
+@using UI.Model
+
+@if (Visible)
+{
+    <div class="avatar-editor-overlay" @onclick="Cancel">
+        <div class="avatar-editor-panel" @onclick:stopPropagation="true">
+            <div class="avatar-editor-header">
+                <button type="button" class="avatar-editor-confirm" @onclick="Confirm">OK</button>
+                <img src="images/svgs/exit.svg"
+                     class="avatar-editor-exit"
+                     alt="Close"
+                     @onclick="Cancel"/>
+            </div>
+
+            <div class="avatar-editor-preview-row">
+                <AvatarView Config="draft" CssClass="avatar-editor-preview"/>
+                <div class="skin-palette" title="Skin tone">
+                    @foreach (var color in AvatarCatalog.SkinColors)
+                    {
+                        <button type="button"
+                                class="color-swatch @(draft.SkinColor == color ? "selected" : null)"
+                                style="background-color:@color"
+                                @onclick="() => SetSkinColor(color)">
+                        </button>
+                    }
+                </div>
+            </div>
+
+            <div class="category-row">
+                @foreach (AvatarCategory category in Enum.GetValues<AvatarCategory>())
+                {
+                    <button type="button"
+                            class="category-button @(selectedCategory == category ? "selected" : null)"
+                            @onclick="() => selectedCategory = category">
+                        @category
+                    </button>
+                }
+            </div>
+
+            <div class="style-palette">
+                @foreach (var color in AvatarCatalog.StyleColors)
+                {
+                    <button type="button"
+                            class="color-swatch @(GetActiveColor() == color ? "selected" : null)"
+                            style="background-color:@color"
+                            @onclick="() => SetStyleColor(color)">
+                    </button>
+                }
+            </div>
+
+            <div class="style-options">
+                @foreach (var styleId in AvatarCatalog.StylesFor(selectedCategory))
+                {
+                    <button type="button"
+                            class="style-option @(GetActiveStyleId() == styleId ? "selected" : null)"
+                            @onclick="() => SetStyleId(styleId)">
+                        @if (styleId == AvatarConfig.None)
+                        {
+                            <span class="style-none">Nothing</span>
+                        }
+                        else
+                        {
+                            <div class="style-thumb"
+                                 style="@ThumbStyle(styleId)">
+                            </div>
+                        }
+                    </button>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool Visible { get; set; }
+    [Parameter] public AvatarConfig InitialConfig { get; set; } = AvatarConfig.CreateDefaultMale();
+    [Parameter] public EventCallback<AvatarConfig> OnConfirm { get; set; }
+    [Parameter] public EventCallback OnCancel { get; set; }
+
+    private AvatarConfig draft = AvatarConfig.CreateDefaultMale();
+    private AvatarCategory selectedCategory = AvatarCategory.Hair;
+    private bool wasVisible;
+
+    protected override void OnParametersSet()
+    {
+        if (Visible && !wasVisible)
+        {
+            draft = InitialConfig.Clone();
+            selectedCategory = AvatarCategory.Hair;
+        }
+
+        wasVisible = Visible;
+    }
+
+    private string GetActiveStyleId() => selectedCategory switch
+    {
+        AvatarCategory.Hair => draft.HairId,
+        AvatarCategory.Beard => draft.BeardId,
+        AvatarCategory.Shirt => draft.ShirtId,
+        _ => AvatarConfig.None
+    };
+
+    private string GetActiveColor() => selectedCategory switch
+    {
+        AvatarCategory.Hair => draft.HairColor,
+        AvatarCategory.Beard => draft.BeardColor,
+        AvatarCategory.Shirt => draft.ShirtColor,
+        _ => draft.HairColor
+    };
+
+    private void SetStyleId(string styleId)
+    {
+        switch (selectedCategory)
+        {
+            case AvatarCategory.Hair:
+                draft.HairId = styleId;
+                break;
+            case AvatarCategory.Beard:
+                draft.BeardId = styleId;
+                break;
+            case AvatarCategory.Shirt:
+                draft.ShirtId = styleId;
+                break;
+        }
+    }
+
+    private void SetStyleColor(string color)
+    {
+        switch (selectedCategory)
+        {
+            case AvatarCategory.Hair:
+                draft.HairColor = color;
+                break;
+            case AvatarCategory.Beard:
+                draft.BeardColor = color;
+                break;
+            case AvatarCategory.Shirt:
+                draft.ShirtColor = color;
+                break;
+        }
+    }
+
+    private void SetSkinColor(string color) => draft.SkinColor = color;
+
+    private string ThumbStyle(string styleId)
+    {
+        var path = selectedCategory switch
+        {
+            AvatarCategory.Hair => AvatarCatalog.HairPath(styleId),
+            AvatarCategory.Beard => AvatarCatalog.BeardPath(styleId),
+            AvatarCategory.Shirt => AvatarCatalog.ShirtPath(styleId),
+            _ => null
+        };
+
+        if (path is null)
+        {
+            return string.Empty;
+        }
+
+        var color = GetActiveColor();
+        return $"background-color:{color};" +
+               $"-webkit-mask-image:url('{path}');mask-image:url('{path}');" +
+               "-webkit-mask-size:contain;mask-size:contain;" +
+               "-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;" +
+               "-webkit-mask-position:center;mask-position:center;";
+    }
+
+    private async Task Confirm()
+    {
+        await OnConfirm.InvokeAsync(draft.Clone());
+    }
+
+    private async Task Cancel()
+    {
+        await OnCancel.InvokeAsync();
+    }
+}

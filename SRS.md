@@ -4,11 +4,10 @@
 
 TalkTimer is a lightweight web app for timing who speaks during meetings. Users add participants, start and pause a timer per person, and review total talk time. Only one participant can be actively timed at a time.
 
-Live site: https://troelsmortensen.github.io/TalkTimer/
-
 ## 2. Features (current)
 
-- **Add participants** — name, gender avatar (male/female), and auto-assigned keyboard ID
+- **Add participants** — name, customizable layered avatar, and auto-assigned keyboard ID
+- **Customizable avatars** — modal editor on the add form: hair, beard, shirt styles; per-category colors; skin tone; live preview (session-only)
 - **Participant cards** — name, ID, avatar, elapsed speech time, play/pause control
 - **Exclusive timing** — starting one participant’s timer pauses any other active timer
 - **Keyboard shortcuts** — IDs `1–9` and `Q`, `W`, `E`, `R`, `T` (up to 14 participants)
@@ -29,16 +28,15 @@ Live site: https://troelsmortensen.github.io/TalkTimer/
 | Hosting | GitHub Pages (static WASM publish) |
 | Solution | `SpeechTimer.sln` → single `UI` project |
 
-## 4. Next phase — Customizable avatars
+## 4. Avatar system
 
-**Goal:** Let users personalize participant avatars so they resemble the people in the meeting, instead of only choosing a generic male or female image.
+**Current:** Layered SVG pieces (shirt, neck, face, optional beard/hair) with CSS mask tinting. Users configure an avatar in a modal when adding a participant. Look persists for the session only.
 
-**Intended capabilities:**
-- Customize appearance (e.g. hair, face, clothing, colors, or similar options)
-- Assign a customized avatar when adding or editing a participant
-- Persist the chosen look for the duration of the session (at minimum)
-- Keep the existing card layout and timing UX unchanged
-
-**Out of scope for this phase (unless later decided otherwise):**
+**Out of scope (unless later decided otherwise):**
 - Full photo upload / face recognition
 - Account-based cloud storage of avatar presets
+- Disk/session persistence beyond the current page session
+
+**Later / next iteration:**
+- **Avatar config string** — encode the chosen look as a compact string so a user can copy/save it manually and paste it later to restore a previous avatar
+- **Edit existing card avatar** — reopen the editor from a participant card to change that person’s avatar after add

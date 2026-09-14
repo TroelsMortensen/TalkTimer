@@ -5,7 +5,7 @@
 
 <div id="canvas" tabindex="0" class="canvas" @onkeydown="HandleKeyPress">
     <div class="card">
-        <h1>Taletidstageren <span class="version-number">(v3.3)</span></h1>
+        <h1>Taletidstageren <span class="version-number">(v4.0)</span></h1>
         <div class="card-box">
             <label style="text-align: center">Tilføj deltager:</label>
             <div id="name-input">
@@ -14,10 +14,10 @@
                     @bind="ParticipantName"
                     @bind:event="oninput"
                     @onkeydown="OnEnterPress"/>
-                <img src="images/@(selectedGenderAvatar)"
-                     class="select-gender-button"
-                     alt="Profile"
-                     @onclick="SwapGender"/>
+                <AvatarView Config="selectedAvatar"
+                            CssClass="select-avatar-button"
+                            @onclick="OpenAvatarEditor"
+                            title="Customize avatar"/>
             </div>
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>
@@ -29,4 +29,8 @@
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
     }
 
+    <AvatarEditorModal Visible="showAvatarEditor"
+                       InitialConfig="selectedAvatar"
+                       OnConfirm="OnAvatarConfirmed"
+                       OnCancel="CloseAvatarEditor"/>
 </div>

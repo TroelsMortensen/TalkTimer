@@ -8,11 +8,9 @@
     display:inline-block;
 }
 
-.profile-image{
+::deep .profile-image{
     width: 125px;
     height: 125px;
-    border-radius: 50%;
-    border: 2px solid black;
     margin-left: 10px;
     margin-right: 10px;
     cursor: grab;

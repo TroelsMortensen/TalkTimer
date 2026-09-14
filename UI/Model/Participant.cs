@@ -2,7 +2,7 @@
 
 public class Participant
 {
-    public Participant(string name, string id, int x, int y, string avatarImg)
+    public Participant(string name, string id, int x, int y, AvatarConfig avatar)
     {
         Time = 0;
         IsTalking = false;
@@ -10,15 +10,15 @@ public class Participant
         Id = id;
         X = x;
         Y = y;
-        AvatarImg = avatarImg;
+        Avatar = avatar;
     }
 
     public Action OnStopTalking { get; set; } = null!;
     public Action OnFlipTalkingState { get; set; } = null!;
 
     public Action OnTimeReset { get; set; } = null!;
-    
-    public string AvatarImg { get; set; }
+
+    public AvatarConfig Avatar { get; set; }
 
     public string Name { get; set; }
     public string Id { get; set; }
