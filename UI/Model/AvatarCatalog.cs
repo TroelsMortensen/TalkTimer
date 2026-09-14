@@ -16,12 +16,16 @@ public static class AvatarCatalog
 
     public static readonly IReadOnlyList<string> BeardStyles =
     [
-        AvatarConfig.None
+        AvatarConfig.None,
+        "Beard1",
+        "Beard2",
     ];
 
     public static readonly IReadOnlyList<string> ShirtStyles =
     [
-        "Shirt1"
+        "Shirt1",
+        "Shirt2",
+        "Shirt3",
     ];
 
     public static readonly IReadOnlyList<string> StyleColors =
