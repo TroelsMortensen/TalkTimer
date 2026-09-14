@@ -1,0 +1,83 @@
+@using System.Text
+@using UI.Services
+@inject ParticipantsService ParticipantsService
+@inject IJSRuntime JsRuntime
+
+<div class="export-people-button-container">
+    <img src="images/svgs/export-people.svg"
+         class="export-people-button"
+         alt="Export meeting setup"
+         title="Export meeting setup"
+         @onclick="() => showDialog = !showDialog"/>
+</div>
+
+@if (showDialog)
+{
+    <div class="export-modal">
+        <div class="modal-content">
+            <div class="button-bar">
+                <div class="copy-button-wrap">
+                    <img src="images/svgs/copy.svg"
+                         class="copy-button"
+                         alt="Copy"
+                         title="Copy to clipboard"
+                         @onclick="CopyToClipboard"/>
+                    @if (showCopiedTooltip)
+                    {
+                        <span class="copied-tooltip">Copied</span>
+                    }
+                </div>
+                <img src="images/svgs/exit.svg"
+                     class="exit-button"
+                     alt="Exit"
+                     @onclick="CloseDialog"/>
+            </div>
+
+            <div class="export-text-container">
+                @if (ParticipantsService.participants.Count == 0)
+                {
+                    <p class="empty-message">No participants</p>
+                }
+                else
+                {
+                    <pre class="export-text">@BuildExportText()</pre>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private bool showDialog;
+    private bool showCopiedTooltip;
+
+    private string BuildExportText()
+    {
+        var sb = new StringBuilder();
+        foreach (var participant in ParticipantsService.participants)
+        {
+            if (sb.Length > 0)
+                sb.AppendLine();
+            sb.Append(participant.ToExportLine());
+        }
+
+        return sb.ToString();
+    }
+
+    private async Task CopyToClipboard()
+    {
+        var text = BuildExportText();
+        await JsRuntime.InvokeVoidAsync("navigator.clipboard.writeText", text);
+        showCopiedTooltip = true;
+        StateHasChanged();
+        await Task.Delay(3000);
+        showCopiedTooltip = false;
+        StateHasChanged();
+    }
+
+    private void CloseDialog()
+    {
+        showDialog = false;
+        showCopiedTooltip = false;
+    }
+}

@@ -52,5 +52,8 @@ Fixes:
 ### Version 3.3
 * You must now confirm before navigating away from the page, so as to not loose data.
 
-# Roadmap
-* Customizable avatars, so you can make avatars slightly more looking like the people in the meeting.
+### Version 4.0
+Features:
+* Added customizable avatars, so you can make avatars slightly more looking like the people in the meeting.
+* Added a button to export the meeting setup, so you can easily share the meeting setup with others.
+* Added a button to import a meeting setup, so you can easily import a meeting setup from others. There is a 14 participant limit of 14.

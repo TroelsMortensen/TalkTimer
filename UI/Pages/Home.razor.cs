@@ -2,21 +2,15 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using UI.Model;
+using UI.Services;
 
 namespace UI.Pages;
 
 public partial class Home : ComponentBase
 {
-    private string[] ids =
-    [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9", "Q", "W", "E", "R", "T"
-    ];
+    [Inject] public ParticipantsService ParticipantsService { get; set; }
 
     private string ParticipantName { get; set; } = string.Empty;
-    private int x = 10;
-    private int y = 200;
-    private int idIndex = 0;
-    private List<Participant> participants = [];
     private AvatarConfig selectedAvatar = AvatarConfig.CreateDefaultMale();
     private bool showAvatarEditor;
 
@@ -29,10 +23,9 @@ public partial class Home : ComponentBase
 
     private void AddParticipant()
     {
-        participants.Add(new Participant(ParticipantName, ids[idIndex], x, y, selectedAvatar.Clone()));
-        x += 25;
-        y += 10;
-        idIndex++;
+        if (!ParticipantsService.Add(ParticipantName, selectedAvatar))
+            return;
+
         ParticipantName = "";
     }
 
@@ -47,7 +40,7 @@ public partial class Home : ComponentBase
     }
 
     private void StopAllOthers(string id) =>
-        participants
+        ParticipantsService.participants
             .Where(p => !p.Id.Equals(id))
             .ToList()
             .ForEach(p => p.StopTalking());
@@ -55,7 +48,7 @@ public partial class Home : ComponentBase
     private void HandleKeyPress(KeyboardEventArgs args)
     {
         string keyPress = args.Key;
-        Participant? selectedParticipant = participants.SingleOrDefault(p => p.Id == keyPress);
+        Participant? selectedParticipant = ParticipantsService.participants.SingleOrDefault(p => p.Id == keyPress);
         if (selectedParticipant is not null)
         {
             selectedParticipant.FlipTalkingState();

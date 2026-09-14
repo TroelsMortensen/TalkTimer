@@ -22,9 +22,11 @@
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>
     </div>
-    <DisplayData Participants="participants"/>
-    <ResetAllTimers Participants="participants"/>
-    @foreach (var participant in participants)
+    <DisplayData Participants="ParticipantsService.participants"/>
+    <ResetAllTimers Participants="ParticipantsService.participants"/>
+    <ExportMeetingSetup />
+    <ImportMeetingSetup OnImported="StateHasChanged" />
+    @foreach (var participant in ParticipantsService.participants)
     {
         <ParticipantUI Participant="participant" OnStartTiming="StopAllOthers"/>
     }

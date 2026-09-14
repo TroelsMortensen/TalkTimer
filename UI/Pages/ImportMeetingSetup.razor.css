@@ -1,0 +1,81 @@
+.import-modal {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.4);
+    min-height: 50%;
+    border: 1px solid black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content {
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    margin-top: 50px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-bar {
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding-right: 5px;
+}
+
+.import-people-button-container {
+    display: inline-block;
+    position: absolute;
+    right: 25px;
+    top: 320px;
+}
+
+.import-people-button {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.exit-button {
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.ok-button {
+    cursor: pointer;
+    margin-top: 5px;
+    padding: 4px 14px;
+    font-size: 14px;
+}
+
+.import-text-container {
+    flex: 1;
+    margin: 16px 24px 24px;
+    display: flex;
+    min-height: 0;
+}
+
+.import-textarea {
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    padding: 12px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    user-select: text;
+    -webkit-user-select: text;
+}

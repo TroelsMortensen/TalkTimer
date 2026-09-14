@@ -34,4 +34,54 @@ public class AvatarConfig
         ShirtColor = ShirtColor,
         SkinColor = SkinColor
     };
+
+    public string ToExportString() =>
+        $"{SkinColor};{ShirtId}-{ShirtColor};{BeardId}-{BeardColor};{HairId}-{HairColor}";
+
+    public static bool TryParseExportString(string value, out AvatarConfig config)
+    {
+        config = null!;
+        if (string.IsNullOrWhiteSpace(value))
+            return false;
+
+        var parts = value.Split(';');
+        if (parts.Length != 4)
+            return false;
+
+        if (!TryParseStylePart(parts[1], out var shirtId, out var shirtColor))
+            return false;
+        if (!TryParseStylePart(parts[2], out var beardId, out var beardColor))
+            return false;
+        if (!TryParseStylePart(parts[3], out var hairId, out var hairColor))
+            return false;
+
+        var skinColor = parts[0];
+        if (!skinColor.StartsWith('#'))
+            return false;
+
+        config = new AvatarConfig
+        {
+            SkinColor = skinColor,
+            ShirtId = shirtId,
+            ShirtColor = shirtColor,
+            BeardId = beardId,
+            BeardColor = beardColor,
+            HairId = hairId,
+            HairColor = hairColor
+        };
+        return true;
+    }
+
+    private static bool TryParseStylePart(string part, out string id, out string color)
+    {
+        id = "";
+        color = "";
+        var dashIndex = part.IndexOf("-#", StringComparison.Ordinal);
+        if (dashIndex <= 0)
+            return false;
+
+        id = part[..dashIndex];
+        color = part[(dashIndex + 1)..];
+        return id.Length > 0 && color.StartsWith('#');
+    }
 }

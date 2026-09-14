@@ -42,4 +42,21 @@ public class Participant
         Time = 0;
         OnTimeReset?.Invoke();
     }
+
+    public string ToExportLine() => $"{Name};{Avatar.ToExportString()}";
+
+    public static bool TryParseExportLine(string line, out string name, out AvatarConfig config)
+    {
+        name = "";
+        config = null!;
+        if (string.IsNullOrWhiteSpace(line))
+            return false;
+
+        var sep = line.IndexOf(';');
+        if (sep < 0)
+            return false;
+
+        name = line[..sep];
+        return AvatarConfig.TryParseExportString(line[(sep + 1)..], out config);
+    }
 }

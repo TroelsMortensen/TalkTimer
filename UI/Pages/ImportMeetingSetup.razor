@@ -1,0 +1,67 @@
+@using UI.Model
+@using UI.Services
+@inject ParticipantsService ParticipantsService
+
+<div class="import-people-button-container">
+    <img src="images/svgs/import-people.svg"
+         class="import-people-button"
+         alt="Import meeting setup"
+         title="Import meeting setup"
+         @onclick="OpenDialog"/>
+</div>
+
+@if (showDialog)
+{
+    <div class="import-modal">
+        <div class="modal-content">
+            <div class="button-bar">
+                <button class="ok-button" @onclick="Import">Okay</button>
+                <img src="images/svgs/exit.svg"
+                     class="exit-button"
+                     alt="Exit"
+                     @onclick="CloseDialog"/>
+            </div>
+
+            <div class="import-text-container">
+                <textarea class="import-textarea"
+                          @bind="pasteText"
+                          @bind:event="oninput"
+                          placeholder="Paste participant lines here (one per line)"></textarea>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public EventCallback OnImported { get; set; }
+
+    private bool showDialog;
+    private string pasteText = "";
+
+    private void OpenDialog() => showDialog = true;
+
+    private void CloseDialog()
+    {
+        showDialog = false;
+        pasteText = "";
+    }
+
+    private async Task Import()
+    {
+        var lines = pasteText.Split(['\r', '\n'], StringSplitOptions.None);
+        foreach (var line in lines)
+        {
+            if (string.IsNullOrWhiteSpace(line))
+                continue;
+
+            if (!Participant.TryParseExportLine(line.Trim(), out var name, out var avatar))
+                continue;
+
+            if (!ParticipantsService.Add(name, avatar))
+                break;
+        }
+
+        await OnImported.InvokeAsync();
+        CloseDialog();
+    }
+}
