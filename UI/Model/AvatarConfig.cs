@@ -24,6 +24,17 @@ public class AvatarConfig
         SkinColor = "#F0C8A0"
     };
 
+    public static AvatarConfig CreateDefaultFemale() => new()
+    {
+        HairId = "Hair3",
+        BeardId = None,
+        ShirtId = "Shirt1",
+        HairColor = "#4A3728",
+        BeardColor = "#4A3728",
+        ShirtColor = "#2E5A88",
+        SkinColor = "#F0C8A0"
+    };
+
     public AvatarConfig Clone() => new()
     {
         HairId = HairId,

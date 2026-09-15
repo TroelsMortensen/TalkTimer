@@ -8,10 +8,21 @@ namespace UI.Pages;
 
 public partial class Home : ComponentBase
 {
+    private enum AvatarPreset
+    {
+        Male,
+        Female,
+        Custom
+    }
+
     [Inject] public ParticipantsService ParticipantsService { get; set; }
 
     private string ParticipantName { get; set; } = string.Empty;
+    private readonly AvatarConfig defaultMaleAvatar = AvatarConfig.CreateDefaultMale();
+    private readonly AvatarConfig defaultFemaleAvatar = AvatarConfig.CreateDefaultFemale();
+    private AvatarConfig? customAvatar;
     private AvatarConfig selectedAvatar = AvatarConfig.CreateDefaultMale();
+    private AvatarPreset selectedPreset = AvatarPreset.Male;
     private bool showAvatarEditor;
     private string? draggingParticipantId;
 
@@ -30,13 +41,36 @@ public partial class Home : ComponentBase
         ParticipantName = "";
     }
 
+    private void SelectMalePreset()
+    {
+        selectedPreset = AvatarPreset.Male;
+        selectedAvatar = defaultMaleAvatar;
+    }
+
+    private void SelectFemalePreset()
+    {
+        selectedPreset = AvatarPreset.Female;
+        selectedAvatar = defaultFemaleAvatar;
+    }
+
+    private void SelectCustomPreset()
+    {
+        if (customAvatar is null)
+            return;
+
+        selectedPreset = AvatarPreset.Custom;
+        selectedAvatar = customAvatar;
+    }
+
     private void OpenAvatarEditor() => showAvatarEditor = true;
 
     private void CloseAvatarEditor() => showAvatarEditor = false;
 
     private void OnAvatarConfirmed(AvatarConfig config)
     {
-        selectedAvatar = config;
+        customAvatar = config.Clone();
+        selectedPreset = AvatarPreset.Custom;
+        selectedAvatar = customAvatar;
         showAvatarEditor = false;
     }
 

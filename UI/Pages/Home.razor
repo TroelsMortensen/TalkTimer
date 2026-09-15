@@ -17,10 +17,35 @@
                     @bind="ParticipantName"
                     @bind:event="oninput"
                     @onkeydown="OnEnterPress"/>
-                <AvatarView Config="selectedAvatar"
-                            CssClass="select-avatar-button"
-                            @onclick="OpenAvatarEditor"
-                            title="Customize avatar"/>
+            </div>
+            <div class="avatar-preset-row" role="group" aria-label="Avatar preset">
+                <button type="button"
+                        class="avatar-preset-button @(selectedPreset == AvatarPreset.Male ? "selected" : null)"
+                        title="Male default"
+                        @onclick="SelectMalePreset">
+                    <AvatarView Config="defaultMaleAvatar" CssClass="avatar-preset-view"/>
+                </button>
+                <button type="button"
+                        class="avatar-preset-button @(selectedPreset == AvatarPreset.Female ? "selected" : null)"
+                        title="Female default"
+                        @onclick="SelectFemalePreset">
+                    <AvatarView Config="defaultFemaleAvatar" CssClass="avatar-preset-view"/>
+                </button>
+                @if (customAvatar is not null)
+                {
+                    <button type="button"
+                            class="avatar-preset-button @(selectedPreset == AvatarPreset.Custom ? "selected" : null)"
+                            title="Custom avatar"
+                            @onclick="SelectCustomPreset">
+                        <AvatarView Config="customAvatar" CssClass="avatar-preset-view"/>
+                    </button>
+                }
+                <button type="button"
+                        class="avatar-preset-button avatar-edit-button"
+                        title="Customize avatar"
+                        @onclick="OpenAvatarEditor">
+                    <img src="images/svgs/edit.svg" alt="Customize avatar" class="avatar-edit-icon"/>
+                </button>
             </div>
             <button @onclick="AddParticipant" class="add-button">Tilføj</button>
         </div>

@@ -6,8 +6,9 @@ TalkTimer is a lightweight web app for timing who speaks during meetings. Users 
 
 ## 2. Features (current)
 
-- **Add participants** — name, customizable layered avatar, and auto-assigned keyboard ID
-- **Customizable avatars** — modal editor on the add form: hair, beard, shirt styles; per-category colors; skin tone; live preview (session-only)
+- **Add participants** — name, avatar preset (male/female default or custom), and auto-assigned keyboard ID
+- **Avatar presets** — on the add form: male and female defaults, optional custom slot after editing, edit button opens the modal; selected preset is highlighted
+- **Customizable avatars** — modal editor: hair, beard, shirt styles; per-category colors; skin tone; live preview (session-only)
 - **Participant cards** — name, ID, avatar, elapsed speech time, play/pause control
 - **Exclusive timing** — starting one participant’s timer pauses any other active timer
 - **Keyboard shortcuts** — IDs `1–9` and `Q`, `W`, `E`, `R`, `T` (up to 14 participants)
@@ -35,7 +36,7 @@ TalkTimer is a lightweight web app for timing who speaks during meetings. Users 
 
 ## 4. Avatar system
 
-**Current:** Layered SVG pieces (shirt, neck, face, optional beard/hair) with CSS mask tinting. Users configure an avatar in a modal when adding a participant. Look persists for the session only.
+**Current:** Layered SVG pieces (shirt, neck, face, optional beard/hair) with CSS mask tinting. On the add form, users pick a preset (male default, female default, or last custom) before adding; the chosen preset is highlighted. A custom preset appears after confirming the avatar editor modal. Look persists for the session only.
 
 **Out of scope (unless later decided otherwise):**
 - Full photo upload / face recognition
