@@ -21,7 +21,7 @@
     @if (AvatarCatalog.HairPath(Config.HairId) is { } hairPath)
     {
         <div class="avatar-layer"
-             style="@LayerStyle(hairPath, Config.HairColor)">
+             style="@TintStyle(hairPath, Config.HairColor)">
         </div>
     }
 </div>

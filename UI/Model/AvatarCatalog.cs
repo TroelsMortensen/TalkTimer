@@ -12,6 +12,12 @@ public static class AvatarCatalog
         "Hair2",
         "Hair3",
         "Hair4",
+        "Hair5",
+        "Hair6",
+        "Hair7",
+        "Hair8",
+        "Hair9",
+        "Hair10",
     ];
 
     public static readonly IReadOnlyList<string> BeardStyles =
@@ -19,6 +25,7 @@ public static class AvatarCatalog
         AvatarConfig.None,
         "Beard1",
         "Beard2",
+        "Beard3",
     ];
 
     public static readonly IReadOnlyList<string> ShirtStyles =

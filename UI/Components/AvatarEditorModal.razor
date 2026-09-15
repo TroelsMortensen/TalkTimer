@@ -158,7 +158,7 @@
         }
 
         var color = GetActiveColor();
-        if (selectedCategory == AvatarCategory.Shirt)
+        if (selectedCategory is AvatarCategory.Shirt or AvatarCategory.Hair)
         {
             return $"background-color:{color};" +
                    $"background-image:url('{path}');" +
