@@ -12,7 +12,7 @@ public class ParticipantsService
     public List<Participant> participants = [];
 
     private int x = 10;
-    private int y = 200;
+    private int y = 300;
     private int idIndex;
 
     public bool CanAdd => idIndex < Ids.Length;
